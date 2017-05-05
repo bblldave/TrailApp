@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="App2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource AccentButtonBackgroundDisabled}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+        <StackPanel Name="TopBar" Orientation="Horizontal" Background="DarkSlateGray">
+            
+            <AppBarButton Name="getLocationBtn" Icon="Map" Foreground="White" Label="Get Location" Click="getLocationBtn_Click" />
+            <TextBox Name="locationSearch" Width="220" Height="35" VerticalAlignment="Center" PlaceholderText="Enter Location" Visibility="Collapsed" KeyDown="locationSearch_KeyDown"/>
+            <AppBarButton Name="searchBtn" Icon="Find" Foreground="White" VerticalAlignment="Center" Label="Enter Location" Click="searchBtn_Click"/>
+
+        </StackPanel>
+        <ScrollViewer Grid.Row="1">
+            <ListView Name="placeListView" Margin="10" Grid.Row="1" Background="White">
+
+            </ListView>
+        </ScrollViewer>
+        
+        
+        <Button Name="findTrailsBtn" Width="100" Height="50" Grid.Row="2" Margin="20" Content="Find Trails" Click="findTrailsBtn_Click"/>
+
+    </Grid>
+</Page>
