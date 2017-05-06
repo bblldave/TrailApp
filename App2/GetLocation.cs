@@ -11,7 +11,9 @@ namespace App2
     public class GetLocation
     {
         TrailApi Api = new TrailApi();
+        public List<Place> placeList = new List<Place>();
         public List<Button> placeButtons = new List<Button>();
+        public bool locationFound;
         public double lat { get; set; }
         public double lon { get; set; }
         
@@ -34,13 +36,10 @@ namespace App2
 
                     foreach (var place in Api.placeList)
                     {
-
-                        Button mybutton = new Button();
-                        mybutton.Content = place.name;
-                        placeButtons.Add(mybutton);
-                        
-
+                        placeList.Add(place);
                     }
+
+                    locationFound = true;
                     break;
                 case GeolocationAccessStatus.Denied:
                     
@@ -49,6 +48,8 @@ namespace App2
                     break;
             }
         }
+
+       
 
         
     }

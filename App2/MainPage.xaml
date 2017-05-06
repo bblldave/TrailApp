@@ -13,21 +13,33 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
-        <StackPanel Name="TopBar" Orientation="Horizontal" Background="DarkSlateGray">
+        <CommandBar Background="DarkSlateGray">
+            <AppBarButton Name="getLocationBtn" Icon="Map" Foreground="White" Label="Get Location" Click="getLocationBtn_Click" />
+            <AppBarButton x:Name="searchBtn" Icon="Find" Foreground="White" VerticalAlignment="Center" Label="Enter Location" Click="searchBtn_Click"/>
+            
+        </CommandBar>
+        <!--<StackPanel Name="TopBar" Orientation="Horizontal" Background="DarkSlateGray">
             
             <AppBarButton Name="getLocationBtn" Icon="Map" Foreground="White" Label="Get Location" Click="getLocationBtn_Click" />
-            <TextBox Name="locationSearch" Width="220" Height="35" VerticalAlignment="Center" PlaceholderText="Enter Location" Visibility="Collapsed" KeyDown="locationSearch_KeyDown"/>
-            <AppBarButton Name="searchBtn" Icon="Find" Foreground="White" VerticalAlignment="Center" Label="Enter Location" Click="searchBtn_Click"/>
+            <TextBox Name="locationSearch" Width="220" Height="35" VerticalAlignment="Center" PlaceholderText="Enter Location" KeyDown="locationSearch_KeyDown"/>
+            <AppBarButton x:Name="searchBtn" Icon="Find" Foreground="White" VerticalAlignment="Center" Label="Enter Location" Click="searchBtn_Click"/>
 
-        </StackPanel>
+        </StackPanel>-->
         <ScrollViewer Grid.Row="1">
-            <ListView Name="placeListView" Margin="10" Grid.Row="1" Background="White">
-
+            <ListView Name="placeListView" Margin="10" Grid.Row="1" Background="White" ItemClick="placeListView_ItemClick" IsItemClickEnabled="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                            <TextBlock  Text="{Binding name}"></TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
-        </ScrollViewer>
+        </ScrollViewer> 
+            
+            
         
         
         <Button Name="findTrailsBtn" Width="100" Height="50" Grid.Row="2" Margin="20" Content="Find Trails" Click="findTrailsBtn_Click"/>
+        
 
     </Grid>
 </Page>

@@ -31,37 +31,35 @@ namespace App2
         {
             this.InitializeComponent();
            
+           
         }
+
+       
 
         private  void  getLocationBtn_Click(object sender, RoutedEventArgs e)
         {
             myLocation.findLocation();
-            
-            
-            
         }
 
         private void findTrailsBtn_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var item in myLocation.placeButtons)
-            {
-                placeListView.Items.Add(item);
-            }
-
+            placeListView.ItemsSource = myLocation.placeList;
         }
 
         private void searchBtn_Click(object sender, RoutedEventArgs e)
         {
-            locationSearch.Visibility = Visibility.Visible;
+            
         }
 
-        private void locationSearch_KeyDown(object sender, KeyRoutedEventArgs e)
+      
+      
+
+        private void placeListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (e.Key == Windows.System.VirtualKey.Enter)
-            {
-                
-
-            }
+            
+            this.Frame.Navigate(typeof(TrailDetailsPage), e.ClickedItem);
         }
+
+        
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -18,7 +19,7 @@ namespace App2
 
         private const string ApiKeyHeader = "X-Mashape-Key";
         private const string ApiKey = "w1arm0PQpcmsh1xRV8fMsuIrqjVhp1Hwa0ejsnaR0t2N6kpHHI";
-        public List<Place> placeList = new List<Place>();
+        public ObservableCollection<Place> placeList = new ObservableCollection<Place>();
 
         public void GetApis(double lat, double lon, int radius)
         {
