@@ -4,20 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 
 namespace App2
 {
     public class GetLocation
     {
+        
+
         TrailApi Api = new TrailApi();
         public List<Place> placeList = new List<Place>();
-        public List<Button> placeButtons = new List<Button>();
         public bool locationFound;
         public double lat { get; set; }
         public double lon { get; set; }
         
-        public async void findLocation()
+        
+        public async Task findLocation()
         {
             var accessStatus = await Geolocator.RequestAccessAsync();
 
@@ -27,17 +30,20 @@ namespace App2
                     
                     break;
                 case GeolocationAccessStatus.Allowed:
+                    
                     Geolocator geolocator = new Geolocator { DesiredAccuracyInMeters = 10 };
                     Geoposition pos = await geolocator.GetGeopositionAsync();
                     lat = pos.Coordinate.Point.Position.Latitude;
                     lon = pos.Coordinate.Point.Position.Longitude;
+                    
 
-                    Api.GetApis(pos.Coordinate.Point.Position.Latitude, pos.Coordinate.Point.Position.Longitude, 25);
+                    
+                    
 
-                    foreach (var place in Api.placeList)
-                    {
-                        placeList.Add(place);
-                    }
+                    //foreach (var place in Api.placeList)
+                    //{
+                    //    placeList.Add(place);
+                    //}
 
                     locationFound = true;
                     break;

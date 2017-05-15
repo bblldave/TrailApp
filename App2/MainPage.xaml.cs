@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Popups;
@@ -25,39 +26,48 @@ namespace App2
     {
         TrailApi Api = new TrailApi();
         GetLocation myLocation = new GetLocation();
+        public bool locationstatus;
         
 
         public MainPage()
         {
             this.InitializeComponent();
-           
-           
-        }
-
-       
-
-        private  void  getLocationBtn_Click(object sender, RoutedEventArgs e)
-        {
-            myLocation.findLocation();
+            
         }
 
         private void findTrailsBtn_Click(object sender, RoutedEventArgs e)
         {
-            placeListView.ItemsSource = myLocation.placeList;
-        }
+            
+            //App.Api.GetApis(App.myLocation.lat, App.myLocation.lon, 25);
 
-        private void searchBtn_Click(object sender, RoutedEventArgs e)
-        {
+            //placeListView.ItemsSource = Api.placeList;
             
         }
 
-      
-      
+        private async void findBtn_Click(object sender, RoutedEventArgs e)
+        {
+            loadingRing.IsActive = true;
+            await App.Api.GetApisCityState(cityTxtBox.Text, stateTxtBox.Text, 25);
+            myFrame.Navigate(typeof(TrailList));
+            loadingRing.IsActive = false;
+            //Api.GetApisCityState(City.Text, State.Text, 25);
+            //placeListView.ItemsSource = Api.placeList;
 
-        private void placeListView_ItemClick(object sender, ItemClickEventArgs e)
+        }
+
+        private void hamburgerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            mySplitPanel.IsPaneOpen = !mySplitPanel.IsPaneOpen;
+        }
+
+        private async void GetLocation_TappedAsync(object sender, TappedRoutedEventArgs e)
         {
             
-            this.Frame.Navigate(typeof(TrailDetailsPage), e.ClickedItem);
+            loadingRing.IsActive = true;
+            await App.myLocation.findLocation();
+            await App.Api.GetApis(App.myLocation.lat, App.myLocation.lon, 25);
+            myFrame.Navigate(typeof(TrailList));
+            loadingRing.IsActive = false;
         }
 
         

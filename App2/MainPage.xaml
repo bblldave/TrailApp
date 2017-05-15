@@ -7,39 +7,43 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource AccentButtonBackgroundDisabled}">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
-        <CommandBar Background="DarkSlateGray">
-            <AppBarButton Name="getLocationBtn" Icon="Map" Foreground="White" Label="Get Location" Click="getLocationBtn_Click" />
-            <AppBarButton x:Name="searchBtn" Icon="Find" Foreground="White" VerticalAlignment="Center" Label="Enter Location" Click="searchBtn_Click"/>
-            
-        </CommandBar>
-        <!--<StackPanel Name="TopBar" Orientation="Horizontal" Background="DarkSlateGray">
-            
-            <AppBarButton Name="getLocationBtn" Icon="Map" Foreground="White" Label="Get Location" Click="getLocationBtn_Click" />
-            <TextBox Name="locationSearch" Width="220" Height="35" VerticalAlignment="Center" PlaceholderText="Enter Location" KeyDown="locationSearch_KeyDown"/>
-            <AppBarButton x:Name="searchBtn" Icon="Find" Foreground="White" VerticalAlignment="Center" Label="Enter Location" Click="searchBtn_Click"/>
+        <RelativePanel Background="DarkSlateGray">
+            <Button Name="hamburgerBtn" Foreground="White" RelativePanel.AlignLeftWithPanel="True" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="25" Click="hamburgerBtn_Click"/>
+            <Button Name="searchBtn" Foreground="White" RelativePanel.AlignRightWithPanel="True" FontFamily="Segoe MDL2 Assets" Content="&#xE11A;" FontSize="24" Click="findBtn_Click"/>
+            <TextBox Name="stateTxtBox" RelativePanel.LeftOf="searchBtn" Height="38" Width="200" PlaceholderText="State" FontSize="18"/>
+            <TextBox Name="cityTxtBox" RelativePanel.LeftOf="stateTxtBox" Height="38" Width="200" PlaceholderText="City" Margin="0,0,5,0" FontSize="18"/>
+            <Button Name="backBtn" Background="Transparent" RelativePanel.RightOf="hamburgerBtn" FontFamily="Segoe MDL2 Assets" Content="&#xE112;" FontSize="24" Foreground="white" Margin="10,0,0,0"/>
+            <ProgressRing Name="loadingRing" RelativePanel.AlignHorizontalCenterWithPanel="True" Width="35" Height="35"  IsActive="False"/>
+        </RelativePanel>
 
-        </StackPanel>-->
-        <ScrollViewer Grid.Row="1">
-            <ListView Name="placeListView" Margin="10" Grid.Row="1" Background="White" ItemClick="placeListView_ItemClick" IsItemClickEnabled="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                            <TextBlock  Text="{Binding name}"></TextBlock>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ScrollViewer> 
-            
-            
-        
-        
-        <Button Name="findTrailsBtn" Width="100" Height="50" Grid.Row="2" Margin="20" Content="Find Trails" Click="findTrailsBtn_Click"/>
-        
-
+        <SplitView Name="mySplitPanel" Grid.Row="1" DisplayMode="CompactOverlay" OpenPaneLength="200" >
+            <SplitView.Pane>
+                <ListBox Background="DarkSlateGray">
+                    <ListBoxItem Name="home">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#xE10f;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" />
+                            <TextBlock Text="Home" Foreground="White" FontSize="20" Margin="15,0,0,0"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="getLocation" Tapped="GetLocation_TappedAsync">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#xE707;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" />
+                            <TextBlock Text="Get Location" Foreground="White" FontSize="20" Margin="15,0,0,0"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        
+                    </ListBoxItem>
+                </ListBox>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Frame Name="myFrame"/>
+            </SplitView.Content>
+        </SplitView>
     </Grid>
 </Page>
