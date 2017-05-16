@@ -10,25 +10,44 @@
 
     <Grid Background="Beige">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="389*"/>
-            <ColumnDefinition Width="891*"/>
+            <ColumnDefinition Width=".3*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4*"/>
+
         </Grid.RowDefinitions>
-        <TextBlock x:Name="placeDescription" HorizontalAlignment="Left" Margin="10,524,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="162" Width="369"/>
+
         
-        <Image x:Name="placePic" HorizontalAlignment="Left" Height="265" Margin="0,53,0,0" VerticalAlignment="Top" Width="379"/>
-        <ListView x:Name="activities" HorizontalAlignment="Left" Height="196" Margin="10,323,0,0" VerticalAlignment="Top" Width="369" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding activity_type_name}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            <ScrollViewer Grid.Row="3" Margin="10,0,10,0" >
+                <TextBlock x:Name="placeDescription" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Trail Description" VerticalAlignment="Top" Grid.Row="4" Height="Auto"  />
+            </ScrollViewer>
+        
+        
+        
+        
+
+        <Image x:Name="placePic" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Margin="10,0,0,0" />
+
+        <StackPanel Grid.Row="2" Margin="10,0,10,0">
+            <TextBlock Text="Activities"/>
+            <ListView x:Name="activities" HorizontalAlignment="Left" VerticalAlignment="Top"  IsItemClickEnabled="True" ItemClick="activities_ItemClick">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding activity_type_name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock VerticalAlignment="Bottom" Text="Activity Description" FontWeight="Bold" FontStyle="Italic"/>
+        </StackPanel>
+        
+           
 
 
-        <Maps:MapControl Name="trailMap" Margin="10,48,10,0" VerticalAlignment="Top" Height="662" MapServiceToken="IE6CWqw8LSOJGl3FtWcG~WkKUYZtgj10OaIQPrdi0sA~AllFo50ybXUhWttLxOaFCdhjyPr1MaV2-qn4-v9ZusCJYpqNPEO6slQCIAW4C1NH" Grid.Column="1"/>
+        <Maps:MapControl Name="trailMap"  VerticalAlignment="Top"  MapServiceToken="IE6CWqw8LSOJGl3FtWcG~WkKUYZtgj10OaIQPrdi0sA~AllFo50ybXUhWttLxOaFCdhjyPr1MaV2-qn4-v9ZusCJYpqNPEO6slQCIAW4C1NH" Grid.Column="1" Height="720" Grid.RowSpan="4"/>
 
 
     </Grid>

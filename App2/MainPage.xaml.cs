@@ -32,8 +32,10 @@ namespace App2
         public MainPage()
         {
             this.InitializeComponent();
-            
+
         }
+
+       
 
         private void findTrailsBtn_Click(object sender, RoutedEventArgs e)
         {

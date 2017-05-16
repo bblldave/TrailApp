@@ -36,6 +36,9 @@ namespace App2
         {
             var clickedplace = (Place)e.Parameter;
             activities.ItemsSource = clickedplace.activities;
+            
+
+            
 
             try
             {
@@ -67,7 +70,7 @@ namespace App2
             MapIcon trailPOI = new MapIcon { Location = trailCenter, NormalizedAnchorPoint = new Point(0.5, 1.0), Title = "Trail Location", ZIndex = 0 };
             trailMap.MapElements.Add(trailPOI);
             trailMap.Center = trailCenter;
-            trailMap.Style = MapStyle.AerialWithRoads;
+            trailMap.Style = MapStyle.Road;
             trailMap.ZoomLevel = 15;
             trailMap.LandmarksVisible = true;
 
@@ -80,6 +83,25 @@ namespace App2
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private void activities_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Activity myActivity = e.ClickedItem as Activity;
+            placeDescription.Text = myActivity.description;
+
+            try
+            {
+                BitmapImage bitmapimage = new BitmapImage();
+                bitmapimage.UriSource = new Uri(myActivity.thumbnail);
+                placePic.Source = bitmapimage;
+
+            }
+            catch (Exception)
+            {
+
+
+            }
         }
     }
 }
