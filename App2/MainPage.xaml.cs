@@ -38,6 +38,7 @@ namespace App2
         //This occurs when the search button is pressed. It gets the placelist and navigates to traillist.
         private async void findBtn_Click(object sender, RoutedEventArgs e)
         {
+            App.Api.placeList.Clear();
             loadingRing.IsActive = true;
             await App.Api.GetApisCityState(cityTxtBox.Text, stateTxtBox.Text, 25);
             myFrame.Navigate(typeof(TrailList));
@@ -56,7 +57,7 @@ namespace App2
         //This occurs when the get location button is pressed and gets the placelist then navigates to traillist page.
         private async void GetLocation_TappedAsync(object sender, TappedRoutedEventArgs e)
         {
-            
+            App.Api.placeList.Clear();
             loadingRing.IsActive = true;
             await App.myLocation.findLocation();
             await App.Api.GetApis(App.myLocation.lat, App.myLocation.lon, 25);

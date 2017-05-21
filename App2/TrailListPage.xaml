@@ -5,19 +5,33 @@
     xmlns:local="using:App2"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d">
 
     <Grid>
-        
-        <ScrollViewer>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer Background="DarkGray">
             <ListView Name="placeListView" Tapped="placeListView_Tapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding name}"/>
+                        <Grid MaxHeight="200" Margin="-10,5,0,0" HorizontalAlignment="Left">
+                            <Image Source="{Binding activities[0].thumbnail}" Stretch="Fill" />
+                            <StackPanel VerticalAlignment="Bottom">
+                                <TextBlock Name="PlaceName" Text="{Binding name}" Foreground="WhiteSmoke" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Name="cityText" Text="{Binding city}" Foreground="White" FontWeight="Bold" FontSize="14"/>
+                                    <TextBlock Text="," Foreground="White" FontWeight="Bold" FontSize="14"/>
+                                    <TextBlock Name="StateText" Text="{Binding state}" Foreground="White" FontWeight="Bold" FontSize="14" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate> 
-                
             </ListView>
         </ScrollViewer>
+        <Maps:MapControl Name="pointMap" MapServiceToken="IE6CWqw8LSOJGl3FtWcG~WkKUYZtgj10OaIQPrdi0sA~AllFo50ybXUhWttLxOaFCdhjyPr1MaV2-qn4-v9ZusCJYpqNPEO6slQCIAW4C1NH" Grid.Column="1" />
     </Grid>
 </Page>
