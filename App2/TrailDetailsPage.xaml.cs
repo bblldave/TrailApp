@@ -16,6 +16,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
+//This page is used to show the details for the selected place.
+
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace App2
@@ -36,10 +38,11 @@ namespace App2
         {
             var clickedplace = (Place)e.Parameter;
             activities.ItemsSource = clickedplace.activities;
-            
 
-            
+            activities.SelectedItem = activities.Items[0];
+            trailName.Text = clickedplace.name;
 
+            //This section is used to display the trails description. It is set to the first indexed activity.
             try
             {
                 placeDescription.Text = clickedplace.activities[0].description;
@@ -51,7 +54,7 @@ namespace App2
             }
 
 
-
+            //This section is used to take the trails thumbnail anc display it.
             try
             {
                 BitmapImage bitmapimage = new BitmapImage();
@@ -65,6 +68,7 @@ namespace App2
 
             }
 
+            //This section is center the map on the trails location.
             BasicGeoposition trailPosition = new BasicGeoposition() { Latitude = clickedplace.lat, Longitude = clickedplace.lon };
             Geopoint trailCenter = new Geopoint(trailPosition);
             MapIcon trailPOI = new MapIcon { Location = trailCenter, NormalizedAnchorPoint = new Point(0.5, 1.0), Title = "Trail Location", ZIndex = 0 };
@@ -80,11 +84,9 @@ namespace App2
 
         }
 
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(MainPage));
-        }
+        
 
+        //This is used to allow the user to select different activities. It will display info about the selected activity.
         private void activities_ItemClick(object sender, ItemClickEventArgs e)
         {
             Activity myActivity = e.ClickedItem as Activity;
