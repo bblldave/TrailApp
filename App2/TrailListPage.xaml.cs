@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+//This page is used to display a list of places. I still need to make it look more pleasing.
+
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -27,6 +29,7 @@ namespace App2
         public TrailList()
         {
             this.InitializeComponent();
+            //This is used to set the ListView's items to the placelist.
             placeListView.ItemsSource = App.Api.placeList;
         }
 
@@ -35,10 +38,12 @@ namespace App2
             
         }
 
+        //This is used to navigate the frame to the TrailDetailPage and take the selected place with it.
         private void placeListView_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Place myPlace = placeListView.SelectedItem as Place;
             Frame.Navigate(typeof(TrailDetailsPage),myPlace);
+            
         }
     }
 }

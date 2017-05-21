@@ -15,6 +15,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+//This page is used to display the main frame. This includes the navigation menu and the search bar. The frame is navigated to display other pages while
+//keeping the navigation bars active.
+
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace App2
@@ -24,44 +27,33 @@ namespace App2
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        TrailApi Api = new TrailApi();
-        GetLocation myLocation = new GetLocation();
-        public bool locationstatus;
-        
-
         public MainPage()
         {
             this.InitializeComponent();
-
         }
 
        
 
-        private void findTrailsBtn_Click(object sender, RoutedEventArgs e)
-        {
-            
-            //App.Api.GetApis(App.myLocation.lat, App.myLocation.lon, 25);
-
-            //placeListView.ItemsSource = Api.placeList;
-            
-        }
-
+    
+        //This occurs when the search button is pressed. It gets the placelist and navigates to traillist.
         private async void findBtn_Click(object sender, RoutedEventArgs e)
         {
             loadingRing.IsActive = true;
             await App.Api.GetApisCityState(cityTxtBox.Text, stateTxtBox.Text, 25);
             myFrame.Navigate(typeof(TrailList));
             loadingRing.IsActive = false;
-            //Api.GetApisCityState(City.Text, State.Text, 25);
-            //placeListView.ItemsSource = Api.placeList;
+            
 
         }
 
+        //This occurs when the hamburger button is pressed and opens the navigation panel
         private void hamburgerBtn_Click(object sender, RoutedEventArgs e)
         {
             mySplitPanel.IsPaneOpen = !mySplitPanel.IsPaneOpen;
         }
 
+
+        //This occurs when the get location button is pressed and gets the placelist then navigates to traillist page.
         private async void GetLocation_TappedAsync(object sender, TappedRoutedEventArgs e)
         {
             
