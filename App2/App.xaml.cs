@@ -32,6 +32,7 @@ namespace App2
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            
         }
 
         /// <summary>
@@ -73,6 +74,8 @@ namespace App2
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
+
+            
         }
 
         /// <summary>
@@ -98,5 +101,7 @@ namespace App2
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+
+       
     }
 }

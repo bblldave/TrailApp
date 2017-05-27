@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using unirest_net.http;
+using Windows.UI.Xaml.Media.Imaging;
 
 //This class is used to get data from Trailapi.com
 //It uses a nuget package called unirest to handle HTTP requests and responses
@@ -40,8 +41,9 @@ namespace App2
             foreach (var place in results.places)
             {
                 placeList.Add(place);
-                //Console.WriteLine("name:" + place.name);
             }
+           
+           
         }
 
         //This is used to get a placelist based on the city and state search box. A radius must also be supplied but will have no effect on results.
@@ -64,6 +66,7 @@ namespace App2
                 placeList.Add(place);
                 //Console.WriteLine("name:" + place.name);
             }
+           
 
 
         }

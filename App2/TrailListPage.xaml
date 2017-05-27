@@ -8,17 +8,41 @@
     xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid x:Name="backgroundGrid">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Phone">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="scroller.(Grid.ColumnSpan)" Value="2"/>
+                        <Setter Target="scroller.(Grid.RowSpan)" Value="2"/>
+                        <Setter Target="scroller.VerticalScrollBarVisibility" Value="Hidden"/>
+                        <Setter Target="pointMap.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".3*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer Background="DarkGray">
+        <ScrollViewer Name="scroller" Background="DarkGray" Grid.RowSpan="2">
             <ListView Name="placeListView" Tapped="placeListView_Tapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid MaxHeight="200" Margin="-10,5,0,0" HorizontalAlignment="Left">
-                            <Image Source="{Binding activities[0].thumbnail}" Stretch="Fill" />
+                        <Grid MaxHeight="150" Margin="-10,5,0,0" HorizontalAlignment="Left">
+                            <Image x:Name="placeImage" Source="{Binding activities[0].thumbnail}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" />
                             <StackPanel VerticalAlignment="Bottom">
                                 <TextBlock Name="PlaceName" Text="{Binding name}" Foreground="WhiteSmoke" FontWeight="Bold" FontSize="18" TextWrapping="WrapWholeWords"/>
                                 <StackPanel Orientation="Horizontal">
@@ -29,9 +53,9 @@
                             </StackPanel>
                         </Grid>
                     </DataTemplate>
-                </ListView.ItemTemplate> 
+                </ListView.ItemTemplate>
             </ListView>
         </ScrollViewer>
-        <Maps:MapControl Name="pointMap" MapServiceToken="IE6CWqw8LSOJGl3FtWcG~WkKUYZtgj10OaIQPrdi0sA~AllFo50ybXUhWttLxOaFCdhjyPr1MaV2-qn4-v9ZusCJYpqNPEO6slQCIAW4C1NH" Grid.Column="1" />
+        <Maps:MapControl Name="pointMap" MapServiceToken="IE6CWqw8LSOJGl3FtWcG~WkKUYZtgj10OaIQPrdi0sA~AllFo50ybXUhWttLxOaFCdhjyPr1MaV2-qn4-v9ZusCJYpqNPEO6slQCIAW4C1NH" Grid.RowSpan="2" Grid.Column="1" />
     </Grid>
 </Page>

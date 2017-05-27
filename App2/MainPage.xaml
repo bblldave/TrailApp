@@ -7,42 +7,60 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Background="Black">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Phone">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="mySplitPanel.DisplayMode" Value="Overlay"/>
+                        <Setter Target="stateTxtBox.Visibility" Value="Collapsed"/>
+                        <Setter Target="cityTxtBox.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <RelativePanel Background="DarkSlateGray">
-            <Button Name="hamburgerBtn" Foreground="White" RelativePanel.AlignLeftWithPanel="True" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="25" Click="hamburgerBtn_Click"/>
+        <RelativePanel>
+            <Button Name="hamburgerBtn" Foreground="White" RelativePanel.AlignLeftWithPanel="True" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="20" Height="40" Click="hamburgerBtn_Click" Background="{ThemeResource SystemAccentColor}"/>
             <Button Name="searchBtn" Foreground="White" RelativePanel.AlignRightWithPanel="True" FontFamily="Segoe MDL2 Assets" Content="&#xE11A;" FontSize="24" Click="findBtn_Click"/>
-            <TextBox Name="stateTxtBox" RelativePanel.LeftOf="searchBtn" Height="38" Width="200" PlaceholderText="State" FontSize="18"/>
-            <TextBox Name="cityTxtBox" RelativePanel.LeftOf="stateTxtBox" Height="38" Width="200" PlaceholderText="City" Margin="0,0,5,0" FontSize="18"/>
-            <Button Name="backBtn" Background="Transparent" RelativePanel.RightOf="hamburgerBtn" FontFamily="Segoe MDL2 Assets" Content="&#xE112;" FontSize="24" Foreground="white" Margin="10,0,0,0"/>
-            <ProgressRing Name="loadingRing" RelativePanel.AlignHorizontalCenterWithPanel="True" Width="35" Height="35"  IsActive="False"/>
+            <TextBox Name="stateTxtBox" RelativePanel.LeftOf="searchBtn" Height="Auto" Width="200" PlaceholderText="State" FontSize="18"/>
+            <TextBox Name="cityTxtBox" RelativePanel.LeftOf="stateTxtBox" Height="Auto" Width="200" PlaceholderText="City" Margin="0,0,5,0" FontSize="18"/>
+
         </RelativePanel>
 
-        <SplitView Name="mySplitPanel" Grid.Row="1" DisplayMode="CompactOverlay" OpenPaneLength="200" >
+        <SplitView Name="mySplitPanel" Grid.Row="1" DisplayMode="CompactOverlay" OpenPaneLength="200" CompactPaneLength="40" >
             <SplitView.Pane>
-                <ListBox Background="DarkSlateGray">
+                <ListBox Background="{ThemeResource CalendarDatePickerBorderBrushPointerOver}" >
                     <ListBoxItem Name="home">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xE10f;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" />
-                            <TextBlock Text="Home" Foreground="White" FontSize="20" Margin="15,0,0,0"/>
+                            <TextBlock Text="&#xE10f;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="17" VerticalAlignment="Center"/>
+                            <TextBlock Text="Home" Foreground="White" FontSize="17" Margin="15,0,0,0" VerticalAlignment="Top"/>
                         </StackPanel>
                     </ListBoxItem>
                     <ListBoxItem Name="getLocation" Tapped="GetLocation_TappedAsync">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xE707;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="24" />
-                            <TextBlock Text="Get Location" Foreground="White" FontSize="20" Margin="15,0,0,0"/>
+                            <TextBlock Text="&#xE707;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="17" VerticalAlignment="Center" />
+                            <TextBlock Text="Local Trails" Foreground="White" FontSize="17" Margin="15,0,0,0"/>
                         </StackPanel>
-                    </ListBoxItem>
-                    <ListBoxItem>
-                        
                     </ListBoxItem>
                 </ListBox>
             </SplitView.Pane>
             <SplitView.Content>
-                <Frame Name="myFrame"/>
+                <Grid>
+                    <ProgressRing Name="loadingRing" RelativePanel.AlignHorizontalCenterWithPanel="True" Width="93" Height="94"  IsActive="False" Margin="578,290,569,296"/>
+                    <Frame Name="myFrame"/>
+                </Grid>
             </SplitView.Content>
         </SplitView>
     </Grid>

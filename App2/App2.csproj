@@ -115,6 +115,7 @@
     <None Include="App2_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\NoImage.jpg" />
     <Content Include="Assets\pushpin.png" />
     <Content Include="Assets\trailPic.jpg" />
     <Content Include="Properties\Default.rd.xml" />

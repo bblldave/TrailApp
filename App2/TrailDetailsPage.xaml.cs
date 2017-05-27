@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
@@ -36,6 +37,7 @@ namespace App2
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             var clickedplace = (Place)e.Parameter;
             activities.ItemsSource = clickedplace.activities;
 
@@ -64,7 +66,9 @@ namespace App2
             }
             catch (Exception)
             {
-
+                BitmapImage bitmapimage = new BitmapImage();
+                bitmapimage.UriSource = new Uri("ms-appx:///Assets/NoImage.jpg");
+                placePic.Source = bitmapimage;
 
             }
 
@@ -91,6 +95,7 @@ namespace App2
         {
             Activity myActivity = e.ClickedItem as Activity;
             placeDescription.Text = myActivity.description;
+            
 
             try
             {

@@ -7,6 +7,7 @@ using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage.Streams;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
@@ -37,9 +38,13 @@ namespace App2
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             //This is used to set the ListView's items to the placelist.
             DataTemplate myTemplate = new DataTemplate();
             placeListView.ItemsSource = App.Api.placeList;
+            
+            
+
 
             BasicGeoposition mapCenter = new BasicGeoposition() { Latitude = App.Api.placeList[0].lat, Longitude = App.Api.placeList[0].lon };
             Geopoint trailCenter = new Geopoint(mapCenter);

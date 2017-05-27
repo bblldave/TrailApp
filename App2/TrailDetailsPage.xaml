@@ -8,23 +8,54 @@
     x:Class="App2.TrailDetailsPage"
     mc:Ignorable="d">
 
-    <Grid Background="Beige">
+    <Grid x:Name="backgroundGrid" Background="Beige">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Phone">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="placePic.(Grid.Row)" Value="0"/>
+                        <Setter Target="placePic.MaxHeight" Value="150"/>
+                        <Setter Target="placePic.(Grid.Column)" Value="1"/>
+                        <Setter Target="placePic.Stretch" Value="UniformToFill"/>
+                        <Setter Target="placePic.HorizontalAlignment" Value="Right"/>
+                        <Setter Target="activitiesHolder.(Grid.ColumnSpan)" Value="2"/>
+                        <Setter Target="activitiesHolder.(Grid.Row)" Value="1"/>
+                        <Setter Target="descriptionHolder.(Grid.ColumnSpan)" Value="2"/>
+                        <Setter Target="descriptionHolder.(Grid.Row)" Value="2"/>
+                        <Setter Target="descriptionHolder.MaxHeight" Value="150"/>
+                        <Setter Target="trailMap.(Grid.Row)" Value="3"/>
+                        <Setter Target="trailMap.(Grid.Column)" Value="0"/>
+                        <Setter Target="trailMap.(Grid.ColumnSpan)" Value="2"/>
+                        <Setter Target="backgroundGrid.ColumnDefinitions[0].Width" Value="auto"/>
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".3*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="3*"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="trailName" FontSize="24" FontWeight="Bold" FontStyle="Italic"/>
-        <ScrollViewer Grid.Row="3" Margin="10,0,10,0" >
-                <TextBlock x:Name="placeDescription" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Trail Description" VerticalAlignment="Top" Grid.Row="4" Height="Auto"  />
+        <TextBlock x:Name="trailName" FontSize="24" FontWeight="Bold" FontStyle="Italic" Margin="10,0,0,0" TextWrapping="Wrap"/>
+        <ScrollViewer x:Name="descriptionHolder" Grid.Row="3" Margin="10"  MaxHeight="300">
+                <TextBlock x:Name="placeDescription" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Trail Description" VerticalAlignment="Top" Grid.Row="4" Height="Auto"  Margin="10,0,10,10"/>
             </ScrollViewer>
-        <Image x:Name="placePic" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Margin="10,0,0,0" />
-        <StackPanel Grid.Row="2" Margin="10,0,10,0">
+        <Image x:Name="placePic" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Margin="10,0,0,0"/>
+        <StackPanel x:Name="activitiesHolder" Grid.Row="2" Margin="10,0,10,0">
             <TextBlock Text="Activities" FontWeight="Bold" FontStyle="Italic"/>
             <ListView x:Name="activities" HorizontalAlignment="Left" VerticalAlignment="Top"  IsItemClickEnabled="True" ItemClick="activities_ItemClick">
                 <ListView.ItemTemplate>
