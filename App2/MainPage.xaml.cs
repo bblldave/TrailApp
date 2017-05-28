@@ -6,7 +6,10 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Foundation.Metadata;
+using Windows.UI;
 using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -32,19 +35,48 @@ namespace App2
             this.InitializeComponent();
         }
 
-       
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
 
-    
+            //PC customization
+            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.ApplicationView"))
+            {
+
+                var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+                var accentColor = new UISettings().GetColorValue(UIColorType.Accent);
+                if (titleBar != null)
+                {
+                    titleBar.ButtonBackgroundColor = accentColor;
+                    titleBar.ButtonForegroundColor = Colors.White;
+                    titleBar.BackgroundColor = accentColor;
+                    titleBar.ForegroundColor = Colors.White;
+                }
+            }
+
+            //Mobile customization
+            //if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            //{
+
+            //    var statusBar = StatusBar.GetForCurrentView();
+            //    if (statusBar != null)
+            //    {
+            //        statusBar.BackgroundOpacity = 1;
+            //        statusBar.BackgroundColor = Colors.DarkBlue;
+            //        statusBar.ForegroundColor = Colors.White;
+            //    }
+            //}
+        }
+
+
         //This occurs when the search button is pressed. It gets the placelist and navigates to traillist.
         private async void findBtn_Click(object sender, RoutedEventArgs e)
         {
-            App.Api.placeList.Clear();
             loadingRing.IsActive = true;
+            App.Api.placeList.Clear();
             await App.Api.GetApisCityState(cityTxtBox.Text, stateTxtBox.Text, 25);
             myFrame.Navigate(typeof(TrailList));
             loadingRing.IsActive = false;
-            
-
         }
 
         //This occurs when the hamburger button is pressed and opens the navigation panel
@@ -63,6 +95,21 @@ namespace App2
             await App.Api.GetApis(App.myLocation.lat, App.myLocation.lon, 25);
             myFrame.Navigate(typeof(TrailList));
             loadingRing.IsActive = false;
+        }
+
+         private void App_BackRequested(object sender, Windows.UI.Core.BackRequestedEventArgs e)
+        {
+            Frame rootFrame = myFrame;
+            if (rootFrame == null)
+                return;
+
+            // Navigate back if possible, and if the event has not 
+            // already been handled .
+            if (rootFrame.CanGoBack && e.Handled == false)
+            {
+                e.Handled = true;
+                rootFrame.GoBack();
+            }
         }
 
         

@@ -8,23 +8,23 @@
     x:Class="App2.TrailDetailsPage"
     mc:Ignorable="d">
 
-    <Grid Background="Beige">
+    <Grid x:Name="backgroundGrid" Background="Beige">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".3*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="3*"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="trailName" FontSize="24" FontWeight="Bold" FontStyle="Italic"/>
-        <ScrollViewer Grid.Row="3" Margin="10,0,10,0" >
-                <TextBlock x:Name="placeDescription" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Trail Description" VerticalAlignment="Top" Grid.Row="4" Height="Auto"  />
+        <TextBlock x:Name="trailName" FontSize="24" FontWeight="Bold" FontStyle="Italic" Margin="10,0,0,0" TextWrapping="Wrap"/>
+        <ScrollViewer x:Name="descriptionHolder" Grid.Row="3" Margin="10"  MaxHeight="300">
+                <TextBlock x:Name="placeDescription" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Trail Description" VerticalAlignment="Top" Grid.Row="4" Height="Auto"  Margin="10,0,10,10"/>
             </ScrollViewer>
-        <Image x:Name="placePic" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Margin="10,0,0,0" />
-        <StackPanel Grid.Row="2" Margin="10,0,10,0">
+        <Image x:Name="placePic" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Margin="10,0,0,0"/>
+        <StackPanel x:Name="activitiesHolder" Grid.Row="2" Margin="10,0,10,0">
             <TextBlock Text="Activities" FontWeight="Bold" FontStyle="Italic"/>
             <ListView x:Name="activities" HorizontalAlignment="Left" VerticalAlignment="Top"  IsItemClickEnabled="True" ItemClick="activities_ItemClick">
                 <ListView.ItemTemplate>
