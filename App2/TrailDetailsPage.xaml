@@ -9,37 +9,6 @@
     mc:Ignorable="d">
 
     <Grid x:Name="backgroundGrid" Background="Beige">
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="VisualStateGroup">
-                <VisualState x:Name="Phone">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0"/>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="placePic.(Grid.Row)" Value="0"/>
-                        <Setter Target="placePic.MaxHeight" Value="150"/>
-                        <Setter Target="placePic.(Grid.Column)" Value="1"/>
-                        <Setter Target="placePic.Stretch" Value="UniformToFill"/>
-                        <Setter Target="placePic.HorizontalAlignment" Value="Right"/>
-                        <Setter Target="activitiesHolder.(Grid.ColumnSpan)" Value="2"/>
-                        <Setter Target="activitiesHolder.(Grid.Row)" Value="1"/>
-                        <Setter Target="descriptionHolder.(Grid.ColumnSpan)" Value="2"/>
-                        <Setter Target="descriptionHolder.(Grid.Row)" Value="2"/>
-                        <Setter Target="descriptionHolder.MaxHeight" Value="150"/>
-                        <Setter Target="trailMap.(Grid.Row)" Value="3"/>
-                        <Setter Target="trailMap.(Grid.Column)" Value="0"/>
-                        <Setter Target="trailMap.(Grid.ColumnSpan)" Value="2"/>
-                        <Setter Target="backgroundGrid.ColumnDefinitions[0].Width" Value="auto"/>
-
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Desktop">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="600"/>
-                    </VisualState.StateTriggers>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".3*"/>
             <ColumnDefinition Width="*"/>

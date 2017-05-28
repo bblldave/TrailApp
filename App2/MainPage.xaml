@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="Black">
-        <VisualStateManager.VisualStateGroups>
+    <Grid>
+        <!--<VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup">
                 <VisualState x:Name="Phone">
                     <VisualState.StateTriggers>
@@ -26,7 +26,7 @@
                     </VisualState.StateTriggers>
                 </VisualState>
             </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+        </VisualStateManager.VisualStateGroups>-->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>

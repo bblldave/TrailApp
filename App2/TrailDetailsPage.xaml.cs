@@ -81,11 +81,6 @@ namespace App2
             trailMap.Style = MapStyle.Road;
             trailMap.ZoomLevel = 15;
             trailMap.LandmarksVisible = true;
-
-
-
-
-
         }
 
         
