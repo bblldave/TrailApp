@@ -69,7 +69,7 @@ namespace App2
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    rootFrame.Navigate(typeof(IntroPage), e.Arguments);     // Changed from MainPage to IntroPage.
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

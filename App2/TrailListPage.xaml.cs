@@ -42,17 +42,24 @@ namespace App2
             //This is used to set the ListView's items to the placelist.
             DataTemplate myTemplate = new DataTemplate();
             placeListView.ItemsSource = App.Api.placeList;
-            
-            
 
 
-            BasicGeoposition mapCenter = new BasicGeoposition() { Latitude = App.Api.placeList[0].lat, Longitude = App.Api.placeList[0].lon };
+
+            try
+            {   // Would throw exception when searching for certain specific locations ie. Mattoon Illinois, Champaign Illinois.
+                // Now after searching for those locations, it will display an empty map.
+                BasicGeoposition mapCenter = new BasicGeoposition() { Latitude = App.Api.placeList[0].lat, Longitude = App.Api.placeList[0].lon };
             Geopoint trailCenter = new Geopoint(mapCenter);
             pointMap.Center = trailCenter;
             pointMap.Style = MapStyle.Road;
             pointMap.ZoomLevel = 10;
             pointMap.LandmarksVisible = true;
+            }
+            catch (Exception)
+            {
 
+
+            }
 
             foreach (var item in App.Api.placeList)
             {
