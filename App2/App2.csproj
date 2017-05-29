@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="GetLocation.cs" />
+    <Compile Include="IntroPage.xaml.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -115,6 +116,7 @@
     <None Include="App2_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Mountains_Range.jpeg" />
     <Content Include="Assets\NoImage.jpg" />
     <Content Include="Assets\pushpin.png" />
     <Content Include="Assets\trailPic.jpg" />
@@ -143,6 +145,10 @@
     <Page Include="DeviceFamily-Mobile\TrailListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IntroPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
