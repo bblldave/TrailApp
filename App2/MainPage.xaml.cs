@@ -89,6 +89,10 @@ namespace App2
         //This occurs when the get location button is pressed and gets the placelist then navigates to traillist page.
         private async void GetLocation_TappedAsync(object sender, TappedRoutedEventArgs e)
         {
+            if (mySplitPanel.IsPaneOpen)
+            {
+                mySplitPanel.IsPaneOpen = false;
+            }
             App.Api.placeList.Clear();
             loadingRing.IsActive = true;
             await App.myLocation.findLocation();
