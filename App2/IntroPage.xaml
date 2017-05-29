@@ -13,10 +13,10 @@
         Accent Color: #0091EA
         Font Family: Global Sans Serif
     -->
-    
-    
-    
-    <StackPanel Orientation="Vertical" Background="#66BB6A">
+
+
+
+    <StackPanel Orientation="Vertical" Background="#14912f">
         <RelativePanel Height="300" VerticalAlignment="Top" CornerRadius="0,0,0,0">
 
             <StackPanel Name="HeaderPanel" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Height="300">

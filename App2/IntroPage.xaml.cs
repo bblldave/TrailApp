@@ -79,13 +79,13 @@ namespace App2
             {
                 await App.myLocation.findLocation();
                 await App.Api.GetApis(App.myLocation.lat, App.myLocation.lon, GetRadius());
-                this.Frame.Navigate(typeof(MainPage));
+                Frame.Navigate(typeof(TrailList));
             }
             else if (rdoOtherLocation.IsChecked == true)
             {
                 await App.myLocation.findLocation();
                 await App.Api.GetApisCityState(txtCity.Text, txtState.Text, GetRadius());
-                this.Frame.Navigate(typeof(MainPage));
+                Frame.Navigate(typeof(TrailList));
             }
         }
 

@@ -37,12 +37,13 @@ namespace App2
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            myFrame.Navigate(typeof(IntroPage));
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
-
+            
             //PC customization
             if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.ApplicationView"))
             {
-
+                 
                 var titleBar = ApplicationView.GetForCurrentView().TitleBar;
                 var accentColor = new UISettings().GetColorValue(UIColorType.Accent);
                 if (titleBar != null)
@@ -54,18 +55,7 @@ namespace App2
                 }
             }
 
-            //Mobile customization
-            //if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
-            //{
-
-            //    var statusBar = StatusBar.GetForCurrentView();
-            //    if (statusBar != null)
-            //    {
-            //        statusBar.BackgroundOpacity = 1;
-            //        statusBar.BackgroundColor = Colors.DarkBlue;
-            //        statusBar.ForegroundColor = Colors.White;
-            //    }
-            //}
+          
         }
 
 
@@ -116,9 +106,9 @@ namespace App2
             }
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            myFrame.Navigate(typeof(TrailList));
-        }
+        //private void Page_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    myFrame.Navigate(typeof(TrailList));
+        //}
     }
 }
