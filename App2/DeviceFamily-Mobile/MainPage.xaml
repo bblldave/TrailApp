@@ -8,26 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
-            <!--<VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="VisualStateGroup">
-                <VisualState x:Name="Phone">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0"/>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="mySplitPanel.DisplayMode" Value="Overlay"/>
-                        <Setter Target="stateTxtBox.Visibility" Value="Collapsed"/>
-                        <Setter Target="cityTxtBox.Visibility" Value="Collapsed"/>
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Desktop">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="600"/>
-                    </VisualState.StateTriggers>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>-->
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
@@ -59,7 +39,7 @@
                 </SplitView.Pane>
                 <SplitView.Content>
                     <Grid>
-                        <ProgressRing Name="loadingRing" RelativePanel.AlignHorizontalCenterWithPanel="True" Width="93" Height="94"  IsActive="False" Margin="578,290,569,296"/>
+                        <ProgressRing Name="loadingRing"  Width="54" Height="54"  IsActive="False" />
                         <Frame Name="myFrame"/>
                     </Grid>
                 </SplitView.Content>

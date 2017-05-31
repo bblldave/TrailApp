@@ -31,12 +31,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <RelativePanel>
+        <RelativePanel Background="{ThemeResource CalendarDatePickerBorderBrushPointerOver}">
             <Button Name="hamburgerBtn" Foreground="White" RelativePanel.AlignLeftWithPanel="True" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="20" Height="40" Click="hamburgerBtn_Click" Background="{ThemeResource SystemAccentColor}"/>
             <Button Name="searchBtn" Foreground="White" RelativePanel.AlignRightWithPanel="True" FontFamily="Segoe MDL2 Assets" Content="&#xE11A;" FontSize="24" Click="findBtn_Click"/>
-            <TextBox Name="stateTxtBox" RelativePanel.LeftOf="searchBtn" Height="Auto" Width="200" PlaceholderText="State" FontSize="18"/>
-            <TextBox Name="cityTxtBox" RelativePanel.LeftOf="stateTxtBox" Height="Auto" Width="200" PlaceholderText="City" Margin="0,0,5,0" FontSize="18"/>
-
         </RelativePanel>
 
         <SplitView Name="mySplitPanel" Grid.Row="1" DisplayMode="CompactOverlay" OpenPaneLength="200" CompactPaneLength="40" >

@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ScrollViewer Name="scroller" Background="DarkGray" Grid.RowSpan="2">
+        <ScrollViewer Name="scroller" Background="#597d1b" Grid.RowSpan="2">
             <ListView Name="placeListView" Tapped="placeListView_Tapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
