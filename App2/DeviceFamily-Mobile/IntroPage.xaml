@@ -29,7 +29,7 @@
                     </Rectangle>
                 </StackPanel>
 
-                <TextBlock HorizontalAlignment="Center" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True" Height="140" Text="Welcome to The Trails App" FontSize="28" FontFamily="Global Sans Serif"/>
+                <TextBlock HorizontalAlignment="Center" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True" Height="140" Text="Welcome to The Trails App" FontSize="24" FontFamily="Global Sans Serif"/>
             </RelativePanel>
 
             <StackPanel>

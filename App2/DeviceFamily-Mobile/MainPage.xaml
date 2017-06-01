@@ -23,7 +23,7 @@
             <SplitView Name="mySplitPanel" Grid.Row="1" DisplayMode="Overlay" OpenPaneLength="200" CompactPaneLength="40" >
                 <SplitView.Pane>
                     <ListBox Background="{ThemeResource CalendarDatePickerBorderBrushPointerOver}" >
-                        <ListBoxItem Name="home">
+                        <ListBoxItem Name="home" Tapped="home_Tapped">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="&#xE10f;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="17" VerticalAlignment="Center"/>
                                 <TextBlock Text="Home" Foreground="White" FontSize="17" Margin="15,0,0,0" VerticalAlignment="Top"/>

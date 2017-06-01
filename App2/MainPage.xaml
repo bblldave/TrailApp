@@ -8,25 +8,6 @@
     mc:Ignorable="d">
 
     <Grid>
-        <!--<VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="VisualStateGroup">
-                <VisualState x:Name="Phone">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0"/>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="mySplitPanel.DisplayMode" Value="Overlay"/>
-                        <Setter Target="stateTxtBox.Visibility" Value="Collapsed"/>
-                        <Setter Target="cityTxtBox.Visibility" Value="Collapsed"/>
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Desktop">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="600"/>
-                    </VisualState.StateTriggers>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>-->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -39,7 +20,7 @@
         <SplitView Name="mySplitPanel" Grid.Row="1" DisplayMode="CompactOverlay" OpenPaneLength="200" CompactPaneLength="40" >
             <SplitView.Pane>
                 <ListBox Background="{ThemeResource CalendarDatePickerBorderBrushPointerOver}" >
-                    <ListBoxItem Name="home">
+                    <ListBoxItem Name="home" Tapped="home_Tapped">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="&#xE10f;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="17" VerticalAlignment="Center"/>
                             <TextBlock Text="Home" Foreground="White" FontSize="17" Margin="15,0,0,0" VerticalAlignment="Top"/>

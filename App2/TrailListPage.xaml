@@ -9,26 +9,6 @@
     mc:Ignorable="d">
 
     <Grid x:Name="backgroundGrid">
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="VisualStateGroup">
-                <VisualState x:Name="Phone">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0"/>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="scroller.(Grid.ColumnSpan)" Value="2"/>
-                        <Setter Target="scroller.(Grid.RowSpan)" Value="2"/>
-                        <Setter Target="scroller.VerticalScrollBarVisibility" Value="Hidden"/>
-                        <Setter Target="pointMap.Visibility" Value="Collapsed"/>
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Desktop">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="600"/>
-                    </VisualState.StateTriggers>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>

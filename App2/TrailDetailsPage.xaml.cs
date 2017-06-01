@@ -41,7 +41,15 @@ namespace App2
             var clickedplace = (Place)e.Parameter;
             activities.ItemsSource = clickedplace.activities;
 
-            activities.SelectedItem = activities.Items[0];
+            if (activities.Items[0] != null)
+            {
+                activities.SelectedItem = activities.Items[0];
+            }
+            else
+            {
+                activities.SelectedItem = activities.Items[0];
+            }
+            
             trailName.Text = clickedplace.name;
 
             //This section is used to display the trails description. It is set to the first indexed activity.

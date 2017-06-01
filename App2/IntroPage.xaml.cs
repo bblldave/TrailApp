@@ -77,14 +77,17 @@ namespace App2
         {
             if (rdoMyLocation.IsChecked == true)
             {
+                App.Api.placeList.Clear();
                 await App.myLocation.findLocation();
                 await App.Api.GetApis(App.myLocation.lat, App.myLocation.lon, GetRadius());
                 Frame.Navigate(typeof(TrailList));
             }
             else if (rdoOtherLocation.IsChecked == true)
             {
-                await App.myLocation.findLocation();
-                await App.Api.GetApisCityState(txtCity.Text, txtState.Text, GetRadius());
+                App.Api.placeList.Clear();
+                var location =await App.myLocation.Geocode(txtCity.Text + ", " + txtState.Text);
+                await App.Api.GetApis(location.Position.Latitude, location.Position.Longitude, GetRadius());
+                //await App.Api.GetApisCityState(txtCity.Text, txtState.Text, GetRadius());
                 Frame.Navigate(typeof(TrailList));
             }
         }

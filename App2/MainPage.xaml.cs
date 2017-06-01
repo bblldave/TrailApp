@@ -106,6 +106,11 @@ namespace App2
             }
         }
 
+        private void home_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            myFrame.Navigate(typeof(IntroPage));
+        }
+
         //private void Page_Loaded(object sender, RoutedEventArgs e)
         //{
         //    myFrame.Navigate(typeof(TrailList));

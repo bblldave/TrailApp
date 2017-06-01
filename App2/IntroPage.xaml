@@ -5,7 +5,8 @@
     xmlns:local="using:App2"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    FontFamily="Global Sans Serif" Loaded="pgeIntro_Loaded"
+      xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+      FontFamily="Global Sans Serif" Loaded="pgeIntro_Loaded"
     >
 
     <!--
