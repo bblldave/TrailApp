@@ -53,9 +53,12 @@
 
             <TextBlock Text="Of" FontSize="20sp" HorizontalAlignment="Center"/>
 
-            <StackPanel Width="Auto" HorizontalAlignment="Center" Margin="0, 15, 0, 15">
+            <StackPanel x:Name="radioBtns" Width="Auto" HorizontalAlignment="Center" Margin="0, 15, 0, 15" Visibility="Visible">
                 <RadioButton x:Name="rdoMyLocation" Content="My Location" HorizontalAlignment="Left" Width="Auto" Checked="rdoMyLocation_Checked" TabIndex="1"/>
                 <RadioButton x:Name="rdoOtherLocation" Content="Other Location" HorizontalAlignment="Left" Width="Auto" Checked="rdoOtherLocation_Checked" TabIndex="2"/>
+            </StackPanel>
+            <StackPanel x:Name="loadingRing" Visibility="Collapsed">
+                <ProgressRing x:Name="progressRing" Width="100" Height="100"  IsActive="True"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">

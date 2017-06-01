@@ -62,6 +62,9 @@ namespace App2
             txtCity.IsEnabled = false;
             txtState.IsEnabled = false;
             btnStart.IsEnabled = false;
+            //Disable the loading ring
+            radioBtns.Visibility = Visibility.Visible;
+            loadingRing.Visibility = Visibility.Collapsed;
         }
 
         // When user selects a radius, the radio buttons are enabled.
@@ -77,6 +80,8 @@ namespace App2
         {
             if (rdoMyLocation.IsChecked == true)
             {
+                radioBtns.Visibility = Visibility.Collapsed;
+                loadingRing.Visibility = Visibility.Visible;
                 App.Api.placeList.Clear();
                 await App.myLocation.findLocation();
                 await App.Api.GetApis(App.myLocation.lat, App.myLocation.lon, GetRadius());
@@ -84,6 +89,8 @@ namespace App2
             }
             else if (rdoOtherLocation.IsChecked == true)
             {
+                radioBtns.Visibility = Visibility.Collapsed;
+                loadingRing.Visibility = Visibility.Visible;
                 App.Api.placeList.Clear();
                 var location =await App.myLocation.Geocode(txtCity.Text + ", " + txtState.Text);
                 await App.Api.GetApis(location.Position.Latitude, location.Position.Longitude, GetRadius());
