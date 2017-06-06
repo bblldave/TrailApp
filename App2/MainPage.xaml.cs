@@ -91,6 +91,11 @@ namespace App2
             loadingRing.IsActive = false;
         }
 
+        private void news_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            myFrame.Navigate(typeof(NewsPage));
+        }
+
          private void App_BackRequested(object sender, Windows.UI.Core.BackRequestedEventArgs e)
         {
             Frame rootFrame = myFrame;

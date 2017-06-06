@@ -32,6 +32,12 @@
                             <TextBlock Text="Local Trails" Foreground="White" FontSize="17" Margin="15,0,0,0"/>
                         </StackPanel>
                     </ListBoxItem>
+                    <ListBoxItem Name="news" Tapped="news_Tapped">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#xE8A1;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="17" VerticalAlignment="Center"/>
+                            <TextBlock Text="Hiking News" Foreground="White" FontSize="17" Margin="15,0,0,0" VerticalAlignment="Top"/>
+                        </StackPanel>
+                    </ListBoxItem>
                 </ListBox>
             </SplitView.Pane>
             <SplitView.Content>
