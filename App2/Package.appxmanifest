@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="0c8b0ae5-fcd6-4e73-a6b4-3d697e248ea5" Publisher="CN=bblld" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="0c8b0ae5-fcd6-4e73-a6b4-3d697e248ea5" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="58543bblldave.Hyke" Publisher="CN=B2D773E5-AA3C-4868-91B4-2C8ED04AD5B7" Version="1.1.3.0" />
+  <mp:PhoneIdentity PhoneProductId="43dadbe2-2f0c-4e1f-a284-c970f0d9f295" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>App2</DisplayName>
-    <PublisherDisplayName>bblld</PublisherDisplayName>
+    <DisplayName>Hyke</DisplayName>
+    <PublisherDisplayName>bblldave</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -15,10 +15,14 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="App2.App">
-      <uap:VisualElements DisplayName="App2" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="App2" BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
+      <uap:VisualElements DisplayName="Hyke" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Hyke will show you where hiking and biking trails near a certain location. Use it to find a great place to enjoy some time outdoors." BackgroundColor="transparent">
+        <uap:LockScreen Notification="badge" BadgeLogo="Assets\BadgeLogo.png" />
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="portrait" />
+        </uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>

@@ -16,6 +16,7 @@ using System.Net.Http;
 
 using Newtonsoft.Json;
 using System.Threading.Tasks;
+using Windows.UI.Core;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -34,8 +35,8 @@ namespace App2
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            List<NewsResult> x = await GetHikingNews();
-            newsGrid.ItemsSource = x;
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            newsGrid.ItemsSource = await GetHikingNews();
         }
 
         public async Task<List<NewsResult>> GetHikingNews()

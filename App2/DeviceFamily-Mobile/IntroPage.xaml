@@ -56,6 +56,7 @@
                 </StackPanel>
 
                 <Button x:Name="btnStart" Content="Start" Width="120px" HorizontalAlignment="Center" Margin="0, 25, 0 15" Foreground="White" Background="#0091EA" Click="btnStart_Click" TabIndex="5"/>
+                <HyperlinkButton Content="Copyright 2012 TrailAPI" NavigateUri="https://market.mashape.com/trailapi/trailapi" HorizontalAlignment="Center"/>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

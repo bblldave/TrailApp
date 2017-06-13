@@ -40,6 +40,7 @@ namespace App2
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             var clickedplace = (Place)e.Parameter;
             activities.ItemsSource = clickedplace.activities;
+            moreInfo.NavigateUri = new Uri(clickedplace.activities[0].url);
 
             if (activities.Items[0] != null)
             {
@@ -62,6 +63,8 @@ namespace App2
 
                 placeDescription.Text = "No description available.";
             }
+
+           
 
 
             //This section is used to take the trails thumbnail anc display it.
@@ -105,6 +108,7 @@ namespace App2
                 BitmapImage bitmapimage = new BitmapImage();
                 bitmapimage.UriSource = new Uri(myActivity.thumbnail);
                 placePic.Source = bitmapimage;
+                moreInfo.NavigateUri = new Uri(myActivity.url);
 
             }
             catch (Exception)

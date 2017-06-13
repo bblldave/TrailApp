@@ -28,6 +28,7 @@
                     <ScrollViewer x:Name="descriptionHolder" Grid.Row="3" Margin="10"  MaxHeight="300">
                         <TextBlock x:Name="placeDescription" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Trail Description" VerticalAlignment="Top" Grid.Row="4" Height="Auto"  Margin="10,0,10,10"/>
                     </ScrollViewer>
+                    <HyperlinkButton Name="moreInfo" Content="More Info"/>
                 </ListView>
                 <Maps:MapControl Name="trailMap" MapServiceToken="IE6CWqw8LSOJGl3FtWcG~WkKUYZtgj10OaIQPrdi0sA~AllFo50ybXUhWttLxOaFCdhjyPr1MaV2-qn4-v9ZusCJYpqNPEO6slQCIAW4C1NH" Height="300" VerticalAlignment="Bottom"/>
             </StackPanel>

@@ -38,6 +38,7 @@
             </StackPanel>
 
             <TextBlock HorizontalAlignment="Center" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True" Height="140" Text="Welcome to The Trails App" FontSize="42sp" FontFamily="Global Sans Serif"/>
+            
         </RelativePanel>
 
         <StackPanel>
@@ -67,6 +68,7 @@
             </StackPanel>
 
             <Button x:Name="btnStart" Content="Start" Width="120px" HorizontalAlignment="Center" Margin="0, 25, 0 15" Foreground="White" Background="#0091EA" Click="btnStart_Click" TabIndex="5"/>
+            <HyperlinkButton Content="Copyright 2012 TrailAPI" NavigateUri="https://market.mashape.com/trailapi/trailapi" HorizontalAlignment="Center"/>
         </StackPanel>
     </StackPanel>
 </Page>

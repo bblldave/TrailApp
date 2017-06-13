@@ -34,6 +34,7 @@
                 </ListView.ItemTemplate>
             </ListView>
             <TextBlock VerticalAlignment="Bottom" Text="Activity Description" FontWeight="Bold" FontStyle="Italic"/>
+            <HyperlinkButton Name="moreInfo" Content="More Info"/>
         </StackPanel>
         <Maps:MapControl Name="trailMap"  VerticalAlignment="Top"  MapServiceToken="IE6CWqw8LSOJGl3FtWcG~WkKUYZtgj10OaIQPrdi0sA~AllFo50ybXUhWttLxOaFCdhjyPr1MaV2-qn4-v9ZusCJYpqNPEO6slQCIAW4C1NH" Grid.Column="1" Height="720" Grid.RowSpan="4"/>
     </Grid>
