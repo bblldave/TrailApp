@@ -43,7 +43,7 @@ namespace App2
         {
             var results = new List<NewsResult>();
             var webClient = new HttpClient();
-            webClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "42e4a5ecf3e147eeab519caa1c907215");
+            webClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "f503d1c5394c48dda397a1da5f6b9642");
             byte[] searchResults = await webClient.GetByteArrayAsync("https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=hiking&mkt=en-us");
             var serializer = new JsonSerializer();
             using (var stream = new MemoryStream(searchResults))
